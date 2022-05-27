@@ -1,7 +1,8 @@
 const express = require('express')
+require('dotenv').config();
 
 const app = express()
-const port = 8080;
+const port = process.env.PORT;
 
 // Handlebar
 const hbs = require('hbs');
@@ -37,7 +38,7 @@ app.get('/generic', (req, res) => {
 
 
 app.get('*', (req, res) => {
-    res.sendFile(__dirname + '/public/404.html')
+    res.sendFile(__dirname + '/public/template/404.html')
 })
 
 
